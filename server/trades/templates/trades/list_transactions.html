@@ -1,0 +1,18 @@
+<div>
+    <h1>Transactions</h1>
+    <table>
+      {% for transaction in transactions %}
+      <tr>
+        <th>description</th>
+        <th> executor</th>
+      </tr>
+      <tr>
+        <td>{{ transaction.description }}</td>
+        <td>{{ transaction.executor }}<td>
+        <a href="{% url "update" transaction.id %}">Update</a>
+        <a href="{% url "delete" transaction.id %}">Delete</a>
+      </tr>
+
+    {% endfor %}
+    </table>
+</div>

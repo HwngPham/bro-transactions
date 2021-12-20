@@ -1,0 +1,17 @@
+<h1>Make your new transactions</h1>
+<form method="POST">
+    {% csrf_token %}
+    <label for="description">Description</label>
+    <input type="text" id="description" name="description"/>
+
+    <label for="executor">Executor</lablel>
+    <select name="executor">
+    {% for user in users %}
+        <option value="{{ user.id }}">{{ user }}</option>
+    {% endfor%}
+    </select>
+    {% comment %} display dropdown to select user from "users" {% endcomment %}
+    {% comment %} <input type="number" id="executor" name="executor"/> {% endcomment %}
+
+    <input type="submit" value="Submit"/>
+</form>

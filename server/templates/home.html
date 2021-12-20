@@ -5,8 +5,11 @@
 {% block content %}
 {% if user.is_authenticated %}
   Hi {{ user.username }}!
+  <p><a href="{% url 'create' %}">Create transaction</a></p>
+  
+  
   <p><a href="{% url 'log_out' %}">Log Out</a></p>
-  {% else %}
+{% else %}
   <p>You are not logged in</p>
   <a href="{% url 'log_in' %}">Log In</a>
   {% endif %}

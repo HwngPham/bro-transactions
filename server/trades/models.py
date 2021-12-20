@@ -14,3 +14,6 @@ class Transaction(_.Model):
     updated_at = _.DateTimeField(auto_now=True)
     creator = _.ForeignKey(User, on_delete=_.CASCADE, related_name='creator')
     executor = _.ForeignKey(User, on_delete=_.CASCADE, related_name='executor')
+
+    def __str__(self):
+        return self.description

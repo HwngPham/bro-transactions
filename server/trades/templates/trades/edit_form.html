@@ -1,0 +1,14 @@
+<h1>Edit form</h1>
+<form method="POST">
+    {% csrf_token %}
+    <label for="description">Description</label>
+    <input type="text" id="description" name="description"/>
+
+    <label for="executor">Executor</lablel>
+    <select name="executor">
+    {% for transaction in transactions %}
+        <option value="{{ transaction.id }}">{{ transaction.executor }}</option>
+    {% endfor%}
+    </select>
+    <input type="submit" value="Submit"/>
+</form>
