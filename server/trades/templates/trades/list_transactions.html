@@ -3,16 +3,22 @@
     <table>
       {% for transaction in transactions %}
       <tr>
+        <th>amount</th>
         <th>description</th>
-        <th> executor</th>
+        <th>executor</th>
+        <th>created_at</th>
       </tr>
       <tr>
+        <td>{{ transaction.amount }}</td>
         <td>{{ transaction.description }}</td>
         <td>{{ transaction.executor }}<td>
-        <a href="{% url "update" transaction.id %}">Update</a>
-        <a href="{% url "delete" transaction.id %}">Delete</a>
+        <td>{{ transaction.created_at }}</td>
+        <td><a href="{% url "update" transaction.id %}">Update</a></td>
+        <td><a href="{% url "delete" transaction.id %}">Delete</a></td>
       </tr>
 
     {% endfor %}
     </table>
+
+    <a href="{% url "create_tran" %}">Create a new transaction</a>
 </div>

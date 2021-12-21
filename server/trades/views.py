@@ -6,11 +6,11 @@ from accounts.models import User
 def list(request):
     if not request.user.is_authenticated:
         return redirect('log_in')
-    else:
-        transactions = Transaction.objects.all()
-        return render(request, 'trades/list_transactions.html', {
-            'transactions':transactions
-            })
+  
+    transactions = Transaction.objects.all()
+    return render(request, 'trades/list_transactions.html', {
+        'transactions':transactions
+        })
 
 
 def create(request):
@@ -26,10 +26,13 @@ def create(request):
 
         Transaction(
             status=TransactionStatus.PENDING,
+            amount=request.POST.get('amount'),
             description=request.POST.get('description'),
             creator=request.user,
             executor=excutors[0],
         ).save()
+
+        return redirect('transactions')
 
     users = User.objects.all().exclude(email=request.user.email)
     return render(request, 'trades/create_transaction.html', {'users': users})
@@ -39,35 +42,40 @@ def update_transaction(request, tran_id):
     if not request.user.is_authenticated:
         return redirect('log_in')
     if request.method == 'POST':
-        transaction = Transaction.objects.filter(id=tran_id)
+        transactions = Transaction.objects.filter(id=tran_id)
 
-        if len(transaction) == 0:
+        if len(transactions) == 0:
             return render(request, "trades/error.html")
         
         if not request.POST.get('description'):
-            import pdb;pdb.set_trace()
             return render(request, "trades/error.html")
-        user_id = request.POST.get('executor_id')
+
+        user_id = request.POST.get('executor')
         users = User.objects.filter(id=user_id)
         if len(users) == 0:
             return render(request, "trades/error.html")
 
-        transaction = Transaction.POST.update(id=tran_id)
-        transaction.description=Transaction.POST.get('description')
-        transaction.executor=Transaction.POST.get('executor')
-        transaction.save()
+        transactions[0].amount = request.POST.get('amount')
+        transactions[0].description = request.POST.get('description')
+        transactions[0].save()
         return redirect("transactions")
-    else:
-        transaction=Transaction.objects.filter(id=tran_id)
-        transactions = Transaction.objects.all()
-        return render(request, 'trades/edit_form.html', {'transactions':transactions})
+    
+    transactions = Transaction.objects.filter(id=tran_id)
+    if len(transactions) == 0:
+        return redirect("trades/error.html")
+
+    users = User.objects.all().exclude(email=request.user.email)
+    return render(request, 'trades/edit_form.html', {'transaction':transactions[0], 'users': users})
  
 
 def delete(request, tran_id):
     if not request.user.is_authenticated:
         return redirect('log_in')
 
-    transaction = Transaction.objects.filter(id=tran_id)
-    transaction.delete()
+    transactions = Transaction.objects.filter(id=tran_id)
+    if len(transactions) == 0:
+        return render("trades/error.html")
+
+    transactions.delete()
     return redirect("transactions")
 

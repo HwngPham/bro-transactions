@@ -9,6 +9,7 @@ class TransactionStatus(_.IntegerChoices):
 
 class Transaction(_.Model):
     status = _.IntegerField(choices=TransactionStatus.choices)
+    amount = _.IntegerField(default=0)
     description = _.CharField(max_length=254)
     created_at = _.DateTimeField(auto_now_add=True)
     updated_at = _.DateTimeField(auto_now=True)
