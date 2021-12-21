@@ -8,9 +8,7 @@ def list(request):
         return redirect('log_in')
   
     transactions = Transaction.objects.all()
-    return render(request, 'trades/list_transactions.html', {
-        'transactions':transactions
-        })
+    return render(request, 'trades/list_transactions.html', {'transactions': transactions})
 
 
 def create(request):
