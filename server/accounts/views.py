@@ -23,13 +23,13 @@ def register(request):
     email = request.POST.get('email')
     password = request.POST.get('password')
     password_repeat = request.POST.get('password_repeat')
-
     if request.method == 'POST':
         if not email or not password or not password_repeat:
             return render(request, 'accounts/register.html')
 
         user_already_existed = len(User.objects.filter(email=email)) > 0
         if user_already_existed:
+        # import pdb;pdb.set_trace()
             return render(request, 'accounts/error.html')
 
         if password != password_repeat:
