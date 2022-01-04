@@ -50,7 +50,8 @@
                         </td>
                         <td>
                             <a
-                                href="{% url 'delete' transaction.id %}"
+                                onclick="confirmDelete(this)"
+                                data-href="{% url 'delete' transaction.id %}"
                                 class="text-red-400 hover:text-red-600 hover:italic hover:underline"
                             >
                                 Delete
@@ -68,3 +69,31 @@
     </div>
 </div>
 {% endblock content%}
+
+{% block script%}
+<script>
+    function confirmDelete(element) {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+            }).then(function(result) {
+                if (result.isConfirmed) {
+                fetch(element.dataset.href).then(function() {
+                    Swal.fire(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                    ).then(function() {
+                        window.location.reload()
+                    })
+                })
+            }
+        })
+    }
+</script>
+{% endblock %}
