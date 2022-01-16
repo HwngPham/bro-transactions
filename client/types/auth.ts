@@ -4,7 +4,7 @@ export enum Action {
   register,
 }
 
-export type Credential = {
+export interface Credential {
   password: string
   salt: string
 }

@@ -1741,7 +1741,7 @@ express-urlrewrite@^1.4.0:
 
 express@^4.17.1:
   version "4.17.2"
-  resolved "https://registry.npmjs.org/express/-/express-4.17.2.tgz"
+  resolved "https://registry.yarnpkg.com/express/-/express-4.17.2.tgz#c18369f265297319beed4e5558753cc8c1364cb3"
   integrity sha512-oxlxJxcQlYwqPWKVJJtvQiwHgosH/LrLSPA+H4UxpyvSS6jC5aH+5MoHFM+KABgTOt0APue4w66Ha8jCUo9QGg==
   dependencies:
     accepts "~1.3.7"
@@ -2504,6 +2504,11 @@ jju@^1.1.0:
   version "1.4.0"
   resolved "https://registry.npmjs.org/jju/-/jju-1.4.0.tgz"
   integrity sha1-o6vicYryQaKykE+EpiWXDzia4yo=
+
+js-sha256@^0.9.0:
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/js-sha256/-/js-sha256-0.9.0.tgz#0b89ac166583e91ef9123644bd3c5334ce9d0966"
+  integrity sha512-sga3MHh9sgQN2+pJ9VYZ+1LPwXOxuBJBA5nrR5/ofPfuiJBE2hnjsaN8se8JznOmGLN2p49Pe5U/ttafcs/apA==
 
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
@@ -3546,6 +3551,11 @@ react-dom@17.0.2:
     object-assign "^4.1.1"
     scheduler "^0.20.2"
 
+react-hook-form@^7.24.0:
+  version "7.24.0"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.24.0.tgz#d4d25eb7df6d36753ebb8b37d35cb36458fc5d79"
+  integrity sha512-N2GT4wmdcgP5bw72q/a+vKUBqy14iNQz+4vaFBJLz9Bw+KNYKUjTzcV/kHfOYbcboMeHP2zgf4i4wTmAwrXssg==
+
 react-is@17.0.2:
   version "17.0.2"
   resolved "https://registry.npmjs.org/react-is/-/react-is-17.0.2.tgz"
@@ -4023,6 +4033,11 @@ supports-color@^8.0.0:
   dependencies:
     has-flag "^4.0.0"
 
+swr@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/swr/-/swr-1.1.2.tgz#9f3de2541931fccf03c48f322f1fc935a7551612"
+  integrity sha512-UsM0eo5T+kRPyWFZtWRx2XR5qzohs/LS4lDC0GCyLpCYFmsfTk28UCVDbOE9+KtoXY4FnwHYiF+ZYEU3hnJ1lQ==
+
 tailwindcss@^3.0.2:
   version "3.0.2"
   resolved "https://registry.npmjs.org/tailwindcss/-/tailwindcss-3.0.2.tgz"
@@ -4240,6 +4255,25 @@ url-parse-lax@^3.0.0:
   dependencies:
     prepend-http "^2.0.0"
 
+urs@^0.0.8:
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/urs/-/urs-0.0.8.tgz#8a0e0b792073cdb7eec926d08ab1e017ffab3f66"
+  integrity sha512-LaSSPpr91XrVA3vW2zPupw4K6DSQEDKdL4yQZX1mO2fpljIMpB5zctrjRvxLurelWSgKsHsCmfHNCImscryirQ==
+
+use-http@^1.0.26:
+  version "1.0.26"
+  resolved "https://registry.yarnpkg.com/use-http/-/use-http-1.0.26.tgz#04faaa21a0389ff177531c7dfc2d73f021e6f3c4"
+  integrity sha512-yB0dXX2S0Doyiti/kHqMsvlShL3tlI8YkoEARao1OVFKrGvyXejmWvrYkEI+oVTPvUqGzOsHbNROY0qKDC88Pg==
+  dependencies:
+    urs "^0.0.8"
+    use-ssr "^1.0.24"
+    utility-types "^3.10.0"
+
+use-ssr@^1.0.24:
+  version "1.0.24"
+  resolved "https://registry.yarnpkg.com/use-ssr/-/use-ssr-1.0.24.tgz#213a3df58f5ab9268e6fe1a57ad0a9de91e514d1"
+  integrity sha512-0MFps7ezL57/3o0yl4CvrHLlp9z20n1rQZV/lSRz7if+TUoM6POU1XdOvEjIgjgKeIhTEye1U0khrIYWCTWw4g==
+
 use-subscription@1.5.1:
   version "1.5.1"
   resolved "https://registry.npmjs.org/use-subscription/-/use-subscription-1.5.1.tgz"
@@ -4263,6 +4297,11 @@ util@0.12.4, util@^0.12.0:
     is-typed-array "^1.1.3"
     safe-buffer "^5.1.2"
     which-typed-array "^1.1.2"
+
+utility-types@^3.10.0:
+  version "3.10.0"
+  resolved "https://registry.yarnpkg.com/utility-types/-/utility-types-3.10.0.tgz#ea4148f9a741015f05ed74fd615e1d20e6bed82b"
+  integrity sha512-O11mqxmi7wMKCo6HKFt5AhO4BwY3VV68YU07tgxfz8zJTIxr4BpsezN49Ffwy9j3ZpwwJp4fkRwjRzq3uWE6Rg==
 
 utils-merge@1.0.1:
   version "1.0.1"
