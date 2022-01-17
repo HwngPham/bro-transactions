@@ -13,13 +13,13 @@ export function Login() {
       headers: {
         ContentType: 'application/json',
       },
+      credentials: 'include',
       body: JSON.stringify(userInfo),
     })
     const responseBody = await response.json()
-
     if (response.ok) {
       // TODO: store current user
-      window.location.href = '/'
+      // window.location.href = '/'
     } else {
       setErrorMsg(responseBody.error)
     }

@@ -11,6 +11,8 @@ model Session {
   session_key  String   @id @db.VarChar(40)
   session_data String
   expire_date  DateTime @db.Timestamptz(6)
+  user_id      Int
+  User         User     @relation("Session_user_idToUser", fields: [user_id], references: [id])
 
   @@index([expire_date], map: "django_session_expire_date_a5c62663")
   @@index([session_key], map: "django_session_session_key_c0390e0f_like")
@@ -38,4 +40,5 @@ model User {
   created_at                                DateTime      @db.Timestamptz(6)
   Transaction_Transaction_creator_idToUser  Transaction[] @relation("Transaction_creator_idToUser")
   Transaction_Transaction_executor_idToUser Transaction[] @relation("Transaction_executor_idToUser")
+  Session                                   Session[]     @relation("Session_user_idToUser")
 }
