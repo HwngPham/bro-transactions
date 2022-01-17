@@ -1,3 +1,5 @@
 django
 djangorestframework
 django_extensions
+django-environ
+psycopg2>=2.8
