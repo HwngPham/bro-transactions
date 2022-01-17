@@ -1,3 +1,9 @@
+### Setup project
+```
+cp .env.example .env
+pip install -r requirements.txt
+```
+
 us 1: I can log in with my facebook account.
 
 us 2: I can create a transaction and wait for another bro to confirm it,
