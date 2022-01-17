@@ -25,4 +25,10 @@
         </form>
         <a href="#" class="text-blue-900 hover:underline hover:italic">Forgot your password?</a>
     </div>
+
+    {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+            {{ message }}
+        </li>
+    {% endfor %}
 {% endblock content%}
