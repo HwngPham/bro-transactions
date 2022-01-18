@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% csrf_token %}
+
+{% block content %}
+{% for transaction in transactions %}
+    <tr>
+        <td>{{ transaction.description }}</td>
+        <td>{{ transaction.amount }}</td>
+        <td>{{ transaction.creator }}</td>
+        <td>{{ transaction.executor }}</td>
+        <td>{{ transaction.created_at|date:"d-m-Y" }}</td>
+        <td>
+            <button> 
+                <a href="{% url 'update_status' %}">Confirmed</a>
+            </button>
+        </td>
+    </tr>
+{% endfor %}
+{% endblock content %}

@@ -76,3 +76,20 @@ def delete(request, tran_id):
 
     transactions.delete()
     return redirect("transactions")
+
+
+def finding_nemo(request):
+    if not request.user.is_authenticated:
+        return redirect('log_in')
+    transactions = Transaction.objects.filter(executor=request.user, status=1)
+    return render(request, 'trades/pending.html', {'transactions': transactions})
+
+
+def update_status(request):
+    if not request.user.is_authenticated:
+        return redirect('log_in')
+
+    transactions = Transaction.objects.filter(executor=request.user, status=1)
+    transactions.update(status=2)
+    return redirect("transactions")
+
