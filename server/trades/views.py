@@ -92,4 +92,3 @@ def update_status(request):
     transactions = Transaction.objects.filter(executor=request.user, status=1)
     transactions.update(status=2)
     return redirect("transactions")
-
