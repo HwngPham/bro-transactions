@@ -25,7 +25,7 @@
                         </div>
 
                         <div class="mr-2 hover:rounded-3xl p-2 hover:cursor-pointer hover:bg-slate-200">
-                            <a href="{% url 'finding' %}">
+                            <a href="{% url 'list_pending' %}">
                                 Pendings
                             </a>
                         </div>
@@ -43,7 +43,11 @@
                             Avatar
                         </div>
                         <div class="hover:rounded-3xl p-2 hover:cursor-pointer hover:bg-slate-200">
-                            <a href="{% url 'log_out' %}">Log Out</a>
+                            <a 
+                                onclick="confirmLogout(this)"
+                                data-href="{% url 'log_out' %}">
+                                Log Out
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -52,7 +56,31 @@
             {% endblock %}
         </main>
     </body>
-
+    {% block log_out %}
+    <script>
+        function confirmLogout(element) {
+            Swal.fire({
+                title: 'Are you sure?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Fucking sure!'
+            }).then(function(result) {
+                if (result.isConfirmed) {
+                    fetch(element.dataset.href).then(function() {
+                        Swal.fire(
+                            'You have been logged out'
+                        ).then(function() {
+                            window.location.reload()
+                        })
+                    })
+                }
+            })
+        }
+    </script>
+    {% endblock %}
     {% block script %}
+  
     {% endblock %}
 </html>
