@@ -15,8 +15,7 @@
     <body>
         <main>
             {% if user.is_authenticated %}
-                <div class="flex items-center mx-auto justify-between pl-[100px] pr-[100px] pb-[10px] pt-[10px] shadow-black border bg-zinc-100">
-                    <div class="w-[200px] bg-slate-500">Logo</div>
+                <div class="flex items-center mx-auto justify-between pl-[92px] pr-[100px] pb-[10px] pt-[10px] shadow-black border bg-zinc-100">
                     <div class="flex items-center">
                         <div class="mr-2 hover:rounded-3xl p-2 hover:cursor-pointer hover:bg-slate-200">
                             <a href="{% url 'transactions' %}">
@@ -39,9 +38,6 @@
                     </div>
 
                     <div class="flex items-center">
-                        <div class="bg-slate-500 mr-1">
-                            Avatar
-                        </div>
                         <div class="hover:rounded-3xl p-2 hover:cursor-pointer hover:bg-slate-200">
                             <a 
                                 onclick="confirmLogout(this)"
